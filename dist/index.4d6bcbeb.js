@@ -624,11 +624,18 @@ var tree = new _three.Group();
 tree.add(trunkMesh);
 tree.add(leavesMesh);
 const house = new _three.Group();
-scene.add(door, rightWindow, leftWindow);
-house.add(cylinder, roof);
+house.add(cylinder, roof, door, rightWindow, leftWindow);
 scene.add(tree, house);
 camera.position.z = 8;
 renderer.render(scene, camera);
+function animate() {
+    requestAnimationFrame(animate);
+    leavesMesh.rotation.x += 0.02;
+    leavesMesh.rotation.z += 0.02;
+    roof.rotation.y += 6;
+    renderer.render(scene, camera);
+}
+animate();
 
 },{"three":"ktPTu"}],"ktPTu":[function(require,module,exports) {
 /**
